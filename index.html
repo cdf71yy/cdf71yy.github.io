@@ -2,11 +2,11 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>練習ベアー</title>
+    <title>マイ・シークレット・ベース</title>
     <style>
         body {
             background-color: #1e1e2e;
-            color: #f9e2af;
+            color: #cdd6f4;
             font-family: sans-serif;
             display: flex;
             justify-content: center;
@@ -20,17 +20,62 @@
             border-radius: 10px;
             background-color: #313244;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            width: 300px;
         }
-        h1 { color: #f5c2e7; }
+        h1 { color: #f9e2af; } /* あなたが決めた黄色！ */
+
+        /* --- ここから追加：ボタンのCSS --- */
+        #get-num-btn {
+            background-color: #313244; /* 背景と同じ色 */
+            color: #f9e2af; /* あなたが決めた黄色！ */
+            border: 2px solid #f9e2af; /* 黄色の枠線 */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease; /* 動きをなめらかに */
+            margin-top: 15px;
+            display: block; /* 真ん中に寄せる */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #get-num-btn:hover {
+            background-color: #f9e2af; /* ホバーしたら黄色くなる */
+            color: #313244; /* 文字色は背景色に */
+        }
+        #result-area {
+            font-size: 48px;
+            color: #cdd6f4;
+            margin-top: 20px;
+            height: 60px; /* 数が出ないときもスペースを確保 */
+        }
+        /* --- ここまで追加 --- */
     </style>
 </head>
 <body>
     <div class="card">
         <h1>Hello, World!</h1>
-        <p>ここは私だけの新しい隠れ家（ウェブサイト）です。</p>
-        <p>焦らず、のんびり、自分のペースでアップデートしていきます。</p>
-        <p>一行追加</p>
-        <p>二行目追加</p>
-    </div>
-</body>
+        <p>ここは私だけの新しい隠れ家です。</p>
+        
+        <button id="get-num-btn">数字を出す</button>
+        <div id="result-area"></div>
+        </div>
+
+    <script>
+        // 1. 画面上のボタンと結果表示エリアを、プログラムが触れるように捕まえる
+        const button = document.getElementById('get-num-btn');
+        const resultArea = document.getElementById('result-area');
+
+        // 2. ボタンをクリックしたときの「イベント」を設定する
+        button.addEventListener('click', () => {
+            // 3. 1〜100のランダムな整数を計算する（プログラミング！）
+            // Math.random()は0以上1未満のランダムな数（例：0.456...）を出す
+            // それを100倍して1足し、Math.floorで小数を切り捨てる
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+            // 4. 計算した数字を、画面の結果表示エリアに書き込む
+            resultArea.textContent = randomNumber;
+        });
+    </script>
+    </body>
 </html>

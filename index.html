@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>練習ベアー</title>
     <style>
         body {
@@ -20,7 +21,8 @@
             border-radius: 10px;
             background-color: #8a6242;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            width: 500px;
+            width: 90%;          /* ✨スマホなど画面が小さい時は、画面幅の90%に自動で縮む */
+            max-width: 500px;    /* ✨パソコンなどの大きな画面では、最大500pxまでしか広がらない */
             height: 800px;
         }
         h1 { color: #f9e2af; } /* あなたが決めた黄色！ */

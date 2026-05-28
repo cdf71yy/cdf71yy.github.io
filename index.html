@@ -86,8 +86,29 @@
             // Math.random()は0以上1未満のランダムな数（例：0.456...）を出す
             // それを100倍して1足し、Math.floorで小数を切り捨てる
             const randomIndex = Math.floor(Math.random() * beetles.length);
-            const randomRankIndex = Math.floor(Math.random() * ranks.length);
-            resultArea.textContent = ranks[randomRankIndex] + "\n" + beetles[randomIndex];
+            // 🎲 1. 1〜100のサイコロを振る
+const dice = Math.floor(Math.random() * 100) + 1;
+
+// 🏆 2. 空っぽの「当選ランク」の箱を用意する
+let selectedRank = "";
+
+// 🧠 3. サイコロの目に応じてランクを決定する（条件分岐）
+if (dice <= 1) {
+    selectedRank = "【SSS】神話級 (1%)"; // 1%の確率
+} else if (dice <= 5) {
+    selectedRank = "【SS】幻の個体 (4%)";  // 2〜5が出たら（4%の確率）
+} else if (dice <= 15) {
+    selectedRank = "【S】超レア (10%)";   // 6〜15が出たら（10%の確率）
+} else if (dice <= 35) {
+    selectedRank = "【A】優良個体 (20%)";  // 16〜35が出たら（20%の確率）
+} else if (dice <= 65) {
+    selectedRank = "【B】良個体 (30%)";   // 36〜65が出たら（30%の確率）
+} else {
+    selectedRank = "【C】並個体 (35%)";   // それ以外（66〜100）ならこれ
+}
+
+// 📺 4. 決まったランクと、カブトムシを合体させて画面に出す
+resultArea.textContent = selectedRank + "\n" + beetles[randomIndex];
         });
     </script>
     </body>

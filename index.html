@@ -45,11 +45,22 @@
             color: #313244; /* 文字色は背景色に */
         }
         #result-area {
-            font-size: 48px;
-            color: #cdd6f4;
-            margin-top: 20px;
-            height: 60px; /* 数が出ないときもスペースを確保 */
-        }
+    font-size: 28px;
+    font-weight: bold;
+    color: #f5c2e7;
+    margin-top: 25px;
+    height: auto; /* 縦幅を自動で広がるようにする */
+    
+    /* 🌟ここから下の2行を追加！ */
+    white-space: pre-wrap;  /* ✨さっきJSで書いた「\n（改行）」を画面に正しく反映させる命令 */
+    text-align: center;     /* ✨文字を完全に中央に集める命令 */
+}
+     
+    
+    /* 🌟ここから下の2行を追加！ */
+    white-space: pre-wrap;  /* ✨さっきJSで書いた「\n（改行）」を画面に正しく反映させる命令 */
+    text-align: center;     /* ✨文字を完全に中央に集める命令 */
+}
         /* --- ここまで追加 --- */
     </style>
 </head>
@@ -76,7 +87,7 @@
             // それを100倍して1足し、Math.floorで小数を切り捨てる
             const randomIndex = Math.floor(Math.random() * beetles.length);
             const randomRankIndex = Math.floor(Math.random() * ranks.length);
-            resultArea.textContent = ranks[randomRankIndex] + " " + beetles[randomIndex];
+            resultArea.textContent = ranks[randomRankIndex] + "\n" + beetles[randomIndex];
         });
     </script>
     </body>

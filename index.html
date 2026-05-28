@@ -55,13 +55,6 @@
     white-space: pre-wrap;  /* ✨さっきJSで書いた「\n（改行）」を画面に正しく反映させる命令 */
     text-align: center;     /* ✨文字を完全に中央に集める命令 */
 }
-     
-    
-    /* 🌟ここから下の2行を追加！ */
-    white-space: pre-wrap;  /* ✨さっきJSで書いた「\n（改行）」を画面に正しく反映させる命令 */
-    text-align: center;     /* ✨文字を完全に中央に集める命令 */
-}
-        /* --- ここまで追加 --- */
     </style>
 </head>
 <body>
@@ -80,12 +73,13 @@
         const ranks = ["【C】だめかも", "【B】並個体", "【A】良個体", "【S】超レア", "【SS】幻", "【SSS】神話"];
         const button = document.getElementById('get-num-btn');
         const resultArea = document.getElementById('result-area');
+        const counterArea = document.getElementById('counter-area');
         let clickCount = 0; // 最初は0回からスタート。後から増えるので let を使います
 
         // 2. ボタンをクリックしたときの「イベント」を設定する
         button.addEventListener('click', () => {
             clickCount = clickCount + 1; // 今の回数に1を足して記憶し直す
-    counterArea.textContent = "回数：" + clickCount + "回";}
+    counterArea.textContent = "回数：" + clickCount + "回";
             // 3. 1〜100のランダムな整数を計算する（プログラミング！）
             // Math.random()は0以上1未満のランダムな数（例：0.456...）を出す
             // それを100倍して1足し、Math.floorで小数を切り捨てる
